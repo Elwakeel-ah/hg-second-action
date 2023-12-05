@@ -5,6 +5,8 @@ on:
       - "main"
     paths:
       - "**.js"
+    paths-ignore:
+      - ".github/workflows/*"
   pull_request:
     types: [opened, reopened]
   workflow_dispatch:
