@@ -1,5 +1,13 @@
 name: INFORMATION-WORKFLOW
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "**.js"
+  pull_request:
+    types: [opened, reopened]
+  workflow_dispatch:
 jobs:
   info:
     runs-on: ubuntu-latest
