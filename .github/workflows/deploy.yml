@@ -11,10 +11,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Cache Dependencies
         uses: actions/cache@v3
+        id: cache
         with:
-          path: ~/.npm
+          # path: ~/.npm
+          path: node_module
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
+        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
         run: npm ci
       - name: Test code
         run: npm run test
