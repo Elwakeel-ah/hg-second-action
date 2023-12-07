@@ -69,3 +69,9 @@ jobs:
     steps:
       - name: echo report
         run: echo reporting
+  final:
+    needs: [report, deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: final
+        run: echo "final"
